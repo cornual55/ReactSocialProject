@@ -44,7 +44,8 @@ const Navbar = () => {
     const fullName = `${user.firstName} ${user.lastName}`;
 
 
-    return <FlexBetween padding="1rem 6%" backgroundColor={alt}>
+    return (
+    <FlexBetween padding="1rem 6%" backgroundColor={alt}>
         <FlexBetween gap="1.75rem">
             <Typography fontWeight="bold" fontSize="clamp(1rem, 2rem, 2.25rem)" color="primary" onClick={() => navigate("/home")} sx={{
                 "&:hover": {
@@ -163,6 +164,7 @@ const Navbar = () => {
             </Box>
         )}
     </FlexBetween>
+    )
 }
 
 export default Navbar;
