@@ -22,9 +22,10 @@ export async function register (firstName, lastName, email, password, picturePat
 }
 
 export async function login (email, password) {
-    const user = await User.findOne(email, password);
+    const user = await User.findOne({ email: email });
     if (!user) return {error: true, msg: "User do not exists."};
-    const isMatch = await bcrypt.compare(password, user.password); // посмотреть как передается пользователю соль при использовании bcrypt.compare
+
+    const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return {error: true, msg: "Invalid credentials."};
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
