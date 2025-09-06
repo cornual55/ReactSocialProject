@@ -15,7 +15,7 @@ export const getUserFriends = async (req, res) => {
     try {
         const { id } = req.params;
         const user = await usersService.getUser(id);
-        const friends = usersService.getUserFriends(user);
+        const friends = await usersService.getUserFriends(user);
         const formattedFriends = usersService.formatUserFriends(friends);
         res.status(200).json(formattedFriends);
     } catch (err) {

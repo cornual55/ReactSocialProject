@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 
 export const getUser = async (id) => {
-    return await User.findById(id);;
+    return User.findById(id);
 }
 
 export const getUserFriends = async (user) => {
