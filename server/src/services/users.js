@@ -11,7 +11,7 @@ export const getUserFriends = async (user) => {
     return friends;
 }
 
-export const formatUserFriends = async (friends) => {
+export const formatUserFriends = (friends) => {
     return friends.map(
         ({ _id, firstName, lastName, occupation, location, picturePath }) => {
             return { _id, firstName, lastName, occupation, location, picturePath }
